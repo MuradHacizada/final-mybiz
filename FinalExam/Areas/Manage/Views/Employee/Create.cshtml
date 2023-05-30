@@ -1,0 +1,42 @@
+﻿@model Employee
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic form elements</h4>
+            <p class="card-description">
+                Basic form elements
+            </p>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Fullname">Fullname</label>
+                    <input class="form-control" asp-for="Fullname" placeholder="Name">
+                    <span asp-validation-for="Fullname"></span>
+                </div>
+                 <div class="form-group">
+                    <label asp-for="Description">Description</label>
+                    <input class="form-control" asp-for="Description" placeholder="Description">
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Photo</label>
+                    <input class="form-control" asp-for="Photo" placeholder="Photo">
+                    <span asp-validation-for="Photo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PositionId">Gender</label>
+                    <select class="form-control" asp-for="PositionId">
+                        <option value="disabled">Select Position</option>
+                        @foreach (Position position in ViewBag.Position)
+                        {
+                            <option value="@position.Id">@position.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="PositionId"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
